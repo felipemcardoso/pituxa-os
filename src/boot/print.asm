@@ -1,4 +1,4 @@
-print:
+print_msg:
     mov bx, 0
 .loop:
     lodsb
