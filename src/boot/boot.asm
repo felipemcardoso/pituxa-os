@@ -34,7 +34,13 @@ load_32:
     mov gs, ax
     mov ss, ax
     mov ebp, 0x00200000
-    mov esp, ebp    
+    mov esp, ebp
+    
+    ; Enable A20 line
+    in al, 0x92
+    or al, 2
+    out 0x92, al
+
     jmp $ ; Hang
 
 MSG_REAL_MODE: db 'Starting Pituxa OS in 16-bit real mode.', 0
